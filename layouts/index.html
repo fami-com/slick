@@ -4,11 +4,15 @@
 {{- range $idx, $_ := (.Paginate ($pagepool.ByDate.Reverse)).Pages }}
 <div{{ if and $showfull $idx }} class="post-divider"{{ end }}>
   {{- if default (default true $.Site.Params.showMeta) .Params.showmeta }}
-  <div>
-    <h2 class="post-title">
-      {{ if .Draft }}DRAFT: {{ end }}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h2>
+  <div class="post-heading">
+    <a href="{{ .RelPermalink }}">
+      <h2 class="post-title">
+        {{ if .Draft }}DRAFT: {{ end }} {{ .Title }}
+      </h2>
+      {{ if .Params.subtitle }}
+        <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
+      {{ end }}
+    </a>
     {{ partial "post_meta.html" . }}
   </div>
   {{- end }}
