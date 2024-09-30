@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}" />
     {{- end }}
   <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/header.css" />
   {{- end }}
   {{- $script := resources.Get "script.js" | resources.Fingerprint }}
   <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
